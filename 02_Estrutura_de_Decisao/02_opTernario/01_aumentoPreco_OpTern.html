@@ -10,11 +10,14 @@
     */
 
     //Entrada
-
+    let precoProduto = parseFloat(prompt(`Informe o preço do produto:`).replace(",", "."));
 
     //Processamento
-
+    (precoProduto <= 280) ? precoProduto = precoProduto * 1.2
+    : (precoProduto <= 700) ? precoProduto = precoProduto * 1.15
+    : (precoProduto <= 1500) ? precoProduto = precoProduto * 1.1
+    : precoProduto = precoProduto * 1.05;
 
     //Saída
-
+    alert(`O preço final do produto será de R$ ${precoProduto.toFixed(2).replace(".", ",")}`);
 </script>
