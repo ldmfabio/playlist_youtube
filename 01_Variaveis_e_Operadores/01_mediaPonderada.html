@@ -6,11 +6,13 @@
     */
 
     //Entrada
-
+    const nota1 = Number(prompt(`Informe a nota 1:`).replace(", ", "."));
+    const nota2 = Number(prompt(`Informe a nota 2:`).replace(", ", "."));
+    const nota3 = Number(prompt(`Informe a nota 3:`).replace(", ", "."));
 
     //Processamento
-
+    const mediaPonderada = ((nota1 * 2) + (nota2 * 3) + (nota3 * 5)) / 10;
 
     //Saída
-
+    document.write(`A média final (ponderada) será de ${mediaPonderada.toFixed(2).replace(".", ",")}`);
 </script>
