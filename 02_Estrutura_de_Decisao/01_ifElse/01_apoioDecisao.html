@@ -11,11 +11,31 @@
     */
 
     //Entrada
-
+    const valorVeiculo = Number(prompt(`Qual o valor do veículo?`).replace(",", "."));
+    const valorEntrada = Number(prompt(`Qual o valor de entrada?`).replace(",", "."));
+    const parcelas = parseInt(prompt(`Quantas parcelas de financiamento?`).replace(",", "."));
 
     //Processamento
+    let valorParcela = (valorVeiculo - valorEntrada) / parcelas;
+    if (parcelas >= 12) {
+        valorParcela = valorParcela * 1.1;
+    }
+    alert(`O valor da parcela a ser paga será de R$ ${valorParcela.toFixed(2).replace(".", ",")}`);
 
-
+    if (valorParcela > 1000) {
+        const aumentar = prompt(`Deseja aumentar o número de parcelas (atualmente ${parcelas} parcelas de R$ ${valorParcela.toFixed(2).replace(".",",")})? S-Sim | N-Não`).toUpperCase();
+        if (aumentar == "S") {
+            const novasParcelas = parseInt(prompt(`Qual o novo número de parcelas?`));
+            valorParcela = (valorVeiculo - valorEntrada) / novasParcelas;
+            if (novasParcelas >= 12) {
+                valorParcela = valorParcela * 1.1;
+            }
+            alert(`O novo valor da parcela será de R$ ${valorParcela.toFixed(2).replace(".", ",")}`);
+        }
+        else if (aumentar == "N") {
+            alert(`O valor da parcela continuará sendo de R$ ${valorParcela.toFixed(2).replace(".", ",")}`);
+        }
+    }
     //Saída
 
 </script>
