@@ -10,11 +10,27 @@
     */
 
     //ENTRADA
-
+    const baixaComp = parseInt(prompt(`Quantas consultas de baixa complexidade diárias?`));
+    const mediaComp = parseInt(prompt(`Quantas consultas de média complexidade diárias?`));
+    const altaComp = parseInt(prompt(`Quantas consultas de alta complexidade diárias?`));
 
     //PROCESSAMENTO
+    const totalMinutos = (baixaComp * 15) + (mediaComp * 40) + (altaComp * 75);
+    let valorHora = 0;
+    if (totalMinutos / 60 <= 8) {
+        valorHora = 50;
+    }
+    else if (totalMinutos / 60 <= 10) {
+        valorHora = 75;
+    }
+    else {
+        valorHora = 90;
+    }
 
+    const totalPago = valorHora * (totalMinutos / 60);
+    const horasTrabalhadas = Math.floor(totalMinutos / 60);
+    const minutosTrabalhados = totalMinutos % 60;
 
     //SAÍDA
-
+    alert(`O salário do veterinário será de R$ ${totalPago.toFixed(2).replace(".", ",")}. O tempo trabalhado será de ${horasTrabalhadas} horas e ${minutosTrabalhados} minutos.`);
 </script>
